@@ -194,7 +194,7 @@ const Career = () => {
   const [formData, setFormData] = useState({
     customer_name: '',
     email: '',
-    position_name: '',
+    position_name: '' ,
     phone_number: ''
   });
   const [status, setStatus] = useState({ type: '', message: '' });
@@ -205,7 +205,7 @@ const Career = () => {
       id: 1,
       title_ser: 'Mašinski Tehničar',
       title_eng: 'Mechanical Technician',
-      image: 'src/assets/images/job1.png',
+      image: './src/assets/images/job1.png',
       description_ser: 'Tražimo iskusnog mašinskog tehničara za rad na proizvodnji gumenih delova...',
       description_eng: 'We are looking for an experienced mechanical technician to work on rubber parts production...'
     },
@@ -213,7 +213,7 @@ const Career = () => {
       id: 2,
       title_ser: 'Tehnolog Proizvodnje',
       title_eng: 'Production Technologist',
-      image: 'src//assets/images/job2.jpg',
+      image: './src//assets/images/job2.jpg',
       description_ser: 'Tražimo tehnologa proizvodnje sa iskustvom u oblasti gumenih proizvoda...',
       description_eng: 'We are looking for a production technologist with experience in rubber products...'
     }
