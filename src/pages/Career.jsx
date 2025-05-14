@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import { useTranslation } from 'react-i18next';
 import { colors, typography, spacing, borderRadius, shadows, transitions } from '../styles/globalStyles';
-import { applyForJob } from '../services/api';
+import { applyForJob, loadAllImages } from '../services/api';
 
 const CareerContainer = styled.div`
   max-width: 1200px;
@@ -198,14 +198,15 @@ const Career = () => {
     phone_number: ''
   });
   const [status, setStatus] = useState({ type: '', message: '' });
+  const [jobImages, setJobImages] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  // Example job listings - replace with actual jobs
+  // Example job listings with dynamic images
   const jobs = [
     {
       id: 1,
       title_ser: 'Mašinski Tehničar',
       title_eng: 'Mechanical Technician',
-      image: 'src/assets/logos/job1.png',
       description_ser: 'Tražimo iskusnog mašinskog tehničara za rad na proizvodnji gumenih delova...',
       description_eng: 'We are looking for an experienced mechanical technician to work on rubber parts production...'
     },
@@ -213,11 +214,28 @@ const Career = () => {
       id: 2,
       title_ser: 'Tehnolog Proizvodnje',
       title_eng: 'Production Technologist',
-      image: 'src/assets/logos/job2.jpg',
       description_ser: 'Tražimo tehnologa proizvodnje sa iskustvom u oblasti gumenih proizvoda...',
       description_eng: 'We are looking for a production technologist with experience in rubber products...'
     }
   ];
+
+  useEffect(() => {
+    const fetchImages = async () => {
+      try {
+        setIsLoading(true);
+        const data = await loadAllImages();
+        if (data.jobs_image_list && Array.isArray(data.jobs_image_list)) {
+          setJobImages(data.jobs_image_list);
+        }
+      } catch (error) {
+        console.error('Error loading job images:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchImages();
+  }, []);
 
   const getJobTitle = (job) => {
     return i18n.language === 'sr' ? job.title_ser : job.title_eng;
@@ -225,6 +243,14 @@ const Career = () => {
 
   const getJobDescription = (job) => {
     return i18n.language === 'sr' ? job.description_ser : job.description_eng;
+  };
+
+  const getJobImage = (jobIndex) => {
+    if (jobImages.length > jobIndex) {
+      return jobImages[jobIndex];
+    }
+    // Return empty string if no image is available from API
+    return '';
   };
 
   const handleApply = (job) => {
@@ -312,9 +338,12 @@ const Career = () => {
       <Description>{t('career.description')}</Description>
 
       <JobList>
-        {jobs.map(job => (
+        {jobs.map((job, index) => (
           <JobCard key={job.id}>
-            <JobImage src={job.image} alt={getJobTitle(job)} />
+            <JobImage 
+              src={getJobImage(index)} 
+              alt={getJobTitle(job)} 
+            />
             <JobInfo>
               <JobTitle>{getJobTitle(job)}</JobTitle>
               <JobDescription>{getJobDescription(job)}</JobDescription>
