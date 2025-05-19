@@ -3,8 +3,7 @@ export const en = {
     home: 'Home page',
     about: 'About Us',
     products: 'Production program',
-    contact: 'Contact',
-    career: 'Employment'
+    contact: 'Contact'
   },
   common: {
     back: 'Back',
@@ -71,15 +70,14 @@ export const en = {
     title: 'Contact Us',
     description: 'We have a solution for every request. Contact us and we will help you.',
     address: 'Kružni put 180, Leštane',
-    phone: '+381 22 123 456',
-    email: 'info@hemigumplast.com',
+    phone: '+381 11 8030862',
     open_map: 'Open Map',
     building: 'Hemigumplast Building',
     sending: 'Sending message...',
     success: 'Message sent successfully!',
     error: 'An error occurred while sending the message.',
     name: 'Full Name',
-    email: 'Email Address',
+    email: 'hgplast@eunet.rs',
     message: 'Message',
     send: 'Send Message',
     errors: {
@@ -88,30 +86,19 @@ export const en = {
       minLength: 'Message must be at least 10 characters long'
     }
   },
-  career: {
-    title: 'Open Positions',
-    description: 'Join our team of experts',
-    apply: 'Apply',
-    applyFor: 'Application for position',
-    sending: 'Sending application...',
-    success: 'Your application has been sent successfully!',
-    error: 'An error occurred while sending your application.',
-    form: {
-      name: 'Full Name',
-      email: 'Email Address',
-      position: 'Position',
-      phone: 'Phone Number'
-    }
-  },
   buttons: {
     print: 'Print'
   },
   footer: {
     description: 'Manufacturer of a wide range of spare parts for equipment, machinery and devices in all branches of industry.',
     contact: 'Contact',
-    address: 'Industrial Zone bb, 11000 Belgrade',
-    phone: '+381 11 123 4567',
-    email: 'info@hemigumplast.rs',
+    address: 'Kružni put 180, 11309 Belgrade',
+    phone: '+381 11 8030862',
+    email: 'hgplast@eunet.rs',
+    pib: '101150316',
+    maticni: '17417282',
+    pibLabel: 'PIB',
+    maticniLabel: 'Company ID',
     rights: 'All rights reserved.'
   }
 }; 

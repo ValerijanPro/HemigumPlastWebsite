@@ -1,10 +1,9 @@
 export const sr = {
   nav: {
-    home: 'Početna strana',
+    home: 'Početna',
     about: 'O nama',
-    products: 'Proizvodni program',
-    contact: 'Kontakt',
-    career: 'Zaposlenje'
+    products: 'Program proizvodnje',
+    contact: 'Kontakt'
   },
   common: {
     back: 'Nazad',
@@ -71,15 +70,14 @@ export const sr = {
     title: 'Kontaktirajte nas',
     description: 'Imamo rešenje za svaki vaš zahtev. Kontaktirajte nas i mi ćemo vam pomoći.',
     address: 'Kružni put 180, Leštane',
-    phone: '+381 22 123 456',
-    email: 'info@hemigumplast.com',
+    phone: '+381 11 8030862',
     open_map: 'Otvori mapu',
     building: 'Zgrada Hemigumplast',
     sending: 'Slanje poruke...',
     success: 'Poruka je uspešno poslata!',
     error: 'Došlo je do greške prilikom slanja poruke.',
     name: 'Ime i prezime',
-    email: 'Email adresa',
+    email: 'hgplast@eunet.rs',
     message: 'Poruka',
     send: 'Pošalji poruku',
     errors: {
@@ -88,30 +86,19 @@ export const sr = {
       minLength: 'Poruka mora imati najmanje 10 karaktera'
     }
   },
-  career: {
-    title: 'Otvorene pozicije',
-    description: 'Pridružite se našem timu stručnjaka',
-    apply: 'Prijavi se',
-    applyFor: 'Prijava za poziciju',
-    sending: 'Slanje prijave...',
-    success: 'Vaša prijava je uspešno poslata!',
-    error: 'Došlo je do greške prilikom slanja prijave.',
-    form: {
-      name: 'Ime i prezime',
-      email: 'Email adresa',
-      position: 'Pozicija',
-      phone: 'Broj telefona'
-    }
-  },
   buttons:{
     print: 'Štampaj'
   },
   footer: {
     description: 'Proizvođač širokog asortimana rezervnih delova za opremu, mašine i uređaje u svim granama industrije.',
     contact: 'Kontakt',
-    address: 'Industrijska zona bb, 11000 Beograd',
-    phone: '+381 11 123 4567',
-    email: 'info@hemigumplast.rs',
+    address: 'Kružni put 180, 11309 Belgrade',
+    phone: '+381 11 8030862',
+    email: 'hgplast@eunet.rs',
+    pib: '101150316',
+    maticni: '17417282',
+    pibLabel: 'PIB',
+    maticniLabel: 'Matični broj',
     rights: 'Sva prava zadržana.'
   }
 }; 

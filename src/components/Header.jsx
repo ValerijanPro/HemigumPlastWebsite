@@ -62,7 +62,7 @@ const NavLink = styled(Link)`
   background-color: ${colors.print};
   border-radius: 4px;
   border: none;
-  min-width: 120px;
+  min-width: 170px;
   text-align: center;
   white-space: nowrap;
 
@@ -221,7 +221,6 @@ const Header = ({ onLanguageChange, currentLang }) => {
           <NavLink to="/about">{t('nav.about')}</NavLink>
           <NavLink to="/products">{t('nav.products')}</NavLink>
           <NavLink to="/contact">{t('nav.contact')}</NavLink>
-          <NavLink to="/career">{t('nav.career')}</NavLink>
         </Nav>
         
         <RightSection>
@@ -240,7 +239,6 @@ const Header = ({ onLanguageChange, currentLang }) => {
         <MobileNavLink to="/about" onClick={() => setIsMobileMenuOpen(false)}>{t('nav.about')}</MobileNavLink>
         <MobileNavLink to="/products" onClick={() => setIsMobileMenuOpen(false)}>{t('nav.products')}</MobileNavLink>
         <MobileNavLink to="/contact" onClick={() => setIsMobileMenuOpen(false)}>{t('nav.contact')}</MobileNavLink>
-        <MobileNavLink to="/career" onClick={() => setIsMobileMenuOpen(false)}>{t('nav.career')}</MobileNavLink>
       </MobileMenu>
     </HeaderContainer>
   );

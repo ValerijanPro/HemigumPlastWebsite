@@ -8,7 +8,7 @@ import logo from '../assets/logos/hemigumplast-logo3.png';
 const FooterContainer = styled.footer`
   background-color: ${colors.primary};
   color: white;
-  padding: 0.5rem 2rem;
+  padding: 0.75rem 2rem;
   display: flex;
   justify-content: center;
   position: fixed;
@@ -29,11 +29,9 @@ const FooterContent = styled.div`
 
 const FooterLogo = styled.img`
   width: auto;
-  height: 55px;
+  height: 45px;
   object-fit: contain;
-  transform: scale(0.9);
-  /*background-color: white;*/
-  padding: 5px 20px;
+  padding: 8px 20px;
   border-radius: 4px;
   margin-left: -20px;
 `;
@@ -51,12 +49,12 @@ const ContactItem = styled.div`
   gap: 0.5rem;
   color: white;
   opacity: 0.8;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   white-space: nowrap;
 `;
 
 const Icon = styled.span`
-  font-size: 0.9rem;
+  font-size: 1.5rem;
 `;
 
 const Footer = () => {
@@ -78,6 +76,14 @@ const Footer = () => {
           <ContactItem>
             <Icon>✉️</Icon>
             <span>{t('footer.email')}</span>
+          </ContactItem>
+          <ContactItem>
+            <Icon>🏢</Icon>
+            <span>{t('footer.pibLabel')}: {t('footer.pib')}</span>
+          </ContactItem>
+          <ContactItem>
+            <Icon>📋</Icon>
+            <span>{t('footer.maticniLabel')}: {t('footer.maticni')}</span>
           </ContactItem>
         </ContactInfo>
       </FooterContent>

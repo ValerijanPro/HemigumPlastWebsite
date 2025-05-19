@@ -11,6 +11,9 @@ const ProductsContainer = styled.div`
   margin: 0 auto;
   padding: 2rem;
   gap: 2rem;
+  @media (max-width: 768px) {
+    padding: 8rem 1rem 1rem 1rem;
+  }
 `;
 
 const CategorySidebar = styled.div`
@@ -85,15 +88,17 @@ const ProductGallery = styled.div`
 const GalleryGrid = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 3rem;
   width: 100%;
+  padding: 2rem;
 `;
 
 const GalleryItem = styled.div`
   width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
   border-radius: ${borderRadius.medium};
   overflow: hidden;
-  /* background-color: white; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -216,16 +221,37 @@ const BackButton = styled.button`
 
 const CategoryGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(250px, 1fr));
   gap: 2rem;
   width: 100%;
   padding: 0;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(2, minmax(250px, 1fr));
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: minmax(250px, 1fr);
+  }
+
+  /* Center the last item if it's alone in its row */
+  & > *:last-child:nth-child(3n-2) {
+    grid-column: 2;
+  }
+
+  & > *:last-child:nth-child(2n-1) {
+    grid-column: 1 / -1;
+    max-width: 300px;
+    margin: 0 auto;
+  }
 `;
 
 const CategoryCard = styled.div`
   background-color: #f5f5f7;
   border-radius: 24px;
-  padding: 1.2rem 1rem;
+  padding: 2rem;
   cursor: pointer;
   transition: ${transitions.default};
   display: flex;
@@ -233,10 +259,19 @@ const CategoryCard = styled.div`
   gap: 1rem;
   box-shadow: 0 2px 12px #0002;
   border: 1px solid ${colors.secondary};
-  min-height: 60px;
-  min-width: 0;
+  height: 100px;
+  width: 100%;
+  max-width: 300px;
   align-items: center;
   justify-content: center;
+  text-align: center;
+  margin: 0 auto;
+
+  @media (max-width: 1900px) {
+    height: 75px;
+    max-width: 300px;
+    padding: 1.2rem;
+  }
 
   &:hover {
     transform: translateY(-5px) scale(1.03);
@@ -246,10 +281,18 @@ const CategoryCard = styled.div`
 `;
 
 const CategoryCardTitle = styled.h2`
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   color: ${colors.primary};
   margin: 0;
   text-align: center;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 1900px) {
+    font-size: 1.4rem;
+  }
 `;
 
 const CategoryCardDescription = styled.p`

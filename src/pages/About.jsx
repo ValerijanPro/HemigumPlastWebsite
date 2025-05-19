@@ -1,16 +1,17 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { useTranslation } from 'react-i18next';
-import logo from '../assets/logos/hemigumplast-logo2.png';
+import logo from '../assets/logos/hemigumplast-logo3.png';
 
 const AboutContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 3rem;
+  padding-top: 4rem;
 `;
 
 const Logo = styled.img`
-  max-width: 300px;
+  max-width: 500px;
   height: auto;
   margin: 0 auto;
 `;

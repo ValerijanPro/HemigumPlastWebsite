@@ -18,7 +18,7 @@ const FullScreenContainer = styled.div`
   align-items: center;
   justify-content: center;
   background-image: url(${props => props.bgImage});
-  background-size: cover;
+  background-size: 60% auto;
   background-position: center;
   background-repeat: no-repeat;
   overflow: hidden; /* Prevent scrolling */
@@ -40,8 +40,8 @@ const CenteredContent = styled.div`
   text-align: center;
   color: white;
   padding: 0 2rem;
-  max-width: 1200px;
-  width: 90%;
+  width: 60%;
+  max-width: none;
 `;
 
 const Title = styled.h1`
