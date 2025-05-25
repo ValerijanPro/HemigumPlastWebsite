@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import { useTranslation } from 'react-i18next';
 import { colors, typography, spacing, borderRadius, shadows, transitions } from '../styles/globalStyles';
-import { loadProducts } from '../services/api';
+import { loadProducts, loadAllImages } from '../services/api';
 
 const ProductsContainer = styled.div`
   display: flex;
@@ -235,17 +235,6 @@ const CategoryGrid = styled.div`
   @media (max-width: 768px) {
     grid-template-columns: minmax(250px, 1fr);
   }
-
-  /* Center the last item if it's alone in its row */
-  & > *:last-child:nth-child(3n-2) {
-    grid-column: 2;
-  }
-
-  & > *:last-child:nth-child(2n-1) {
-    grid-column: 1 / -1;
-    max-width: 300px;
-    margin: 0 auto;
-  }
 `;
 
 const CategoryCard = styled.div`
@@ -307,16 +296,19 @@ const Products = () => {
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [imageErrors, setImageErrors] = useState({});
+  const [watermarkLogo, setWatermarkLogo] = useState('');
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const data = await loadProducts();
-        const reversedData = {
-          ...data,
-          categories: [...data.categories].reverse()
-        };
-        setCategories(reversedData.categories);
+        const [productsData, imagesData] = await Promise.all([
+          loadProducts(),
+          loadAllImages()
+        ]);
+        setCategories(productsData.categories);
+        if (imagesData.watermark_logo) {
+          setWatermarkLogo(imagesData.watermark_logo);
+        }
       } catch (error) {
         console.error('Error loading products:', error);
       }
@@ -383,19 +375,47 @@ const Products = () => {
                 {t('common.back')}
               </span>
             </BackButton>
-            <CategoryCardDescription style={{margin: '0 auto 2rem auto', maxWidth: '700px', textAlign: 'center'}}>
+            {selectedCategory.category_image && (
+              <GalleryItem style={{ marginBottom: '2rem', maxWidth: '30%', margin: '0 auto 2rem auto' }}>
+                <GalleryImage
+                  src={getImageUrl(selectedCategory.category_image)}
+                  alt={getCategoryName(selectedCategory)}
+                  onError={() => handleImageError(selectedCategory.category_image)}
+                  style={{ width: '100%', height: 'auto' }}
+                />
+              </GalleryItem>
+            )}
+            <CategoryCardDescription style={{margin: '0 auto 2rem auto', maxWidth: '700px', textAlign: 'center', color: 'black'}}>
               {getCategoryText(selectedCategory)}
             </CategoryCardDescription>
             {hasImages ? (
               <GalleryGrid>
                 {productImages.map((imageUrl, index) => (
-                  <GalleryItem key={index}>
+                  <GalleryItem key={index} style={{ position: 'relative' }}>
                     {!imageErrors[imageUrl] ? (
-                      <GalleryImage
-                        src={getImageUrl(imageUrl)}
-                        alt={`${getCategoryName(selectedCategory)} - Image ${index + 1}`}
-                        onError={() => handleImageError(imageUrl)}
-                      />
+                      <>
+                        <GalleryImage
+                          src={getImageUrl(imageUrl)}
+                          alt={`${getCategoryName(selectedCategory)} - Image ${index + 1}`}
+                          onError={() => handleImageError(imageUrl)}
+                        />
+                        {watermarkLogo && (
+                          <img 
+                            src={getImageUrl(watermarkLogo)} 
+                            alt="Watermark"
+                            style={{
+                              position: 'absolute',
+                              top: '50%',
+                              left: '50%',
+                              transform: 'translate(-50%, -50%)',
+                              width: '30%',
+                              height: 'auto',
+                              opacity: 1,
+                              pointerEvents: 'none'
+                            }}
+                          />
+                        )}
+                      </>
                     ) : (
                       <ImageError>
                         Failed to load image

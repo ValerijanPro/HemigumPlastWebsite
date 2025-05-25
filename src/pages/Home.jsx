@@ -18,7 +18,7 @@ const FullScreenContainer = styled.div`
   align-items: center;
   justify-content: center;
   background-image: url(${props => props.bgImage});
-  background-size: 60% auto;
+  background-size: 50% auto;
   background-position: center;
   background-repeat: no-repeat;
   overflow: hidden; /* Prevent scrolling */
@@ -40,32 +40,32 @@ const CenteredContent = styled.div`
   text-align: center;
   color: white;
   padding: 0 2rem;
-  width: 60%;
+  width: 50%;
   max-width: none;
 `;
 
 const Title = styled.h1`
-  font-size: 4.5rem;
+  font-size: 3.5rem;
   font-weight: 800;
   margin-bottom: 2rem;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   width: 100%;
   
   @media (max-width: 768px) {
-    font-size: 3.2rem;
+    font-size: 2.5rem;
   }
 `;
 
 const Subtitle = styled.p`
-  font-size: 2rem;
+  font-size: 1.6rem;
   line-height: 1.5;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-  max-width: 1100px;
+  max-width: 900px;
   margin: 0 auto;
   width: 100%;
   
   @media (max-width: 768px) {
-    font-size: 1.6rem;
+    font-size: 1.3rem;
   }
 `;
 

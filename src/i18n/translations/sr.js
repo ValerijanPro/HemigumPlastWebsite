@@ -29,7 +29,7 @@ export const sr = {
     description: 'Hemigumplast je dobro etabliran proizvođač širokog asortimana rezervnih delova za opremu, mašine i uređaje u svim granama industrije. Specijalizovani smo za primenu najnovijih materijala i tehnologija u oblastima gume, silikona, Vitona, poliuretana, Teflona, grafita, plastike i raznih kompozitnih materijala.',
     certificates: {
       title: 'Sertifikati',
-      description: 'Hemigumplast poseduje brojne sertifikate kvaliteta koji potvrđuju našu posvećenost primeni globalnih standarda i inovativnih tehnologija. Naši sertifikati uključuju ISO 9001:2015 za upravljanje kvalitetom, ISO 14001:2015 za upravljanje okolinom, i druge relevantne sertifikate koji dokazuju našu posvećenost kvalitetu i održivosti.'
+      description: 'Hemigumplast poseduje brojne sertifikate kvaliteta koji potvrđuju našu posvećenost implementaciji globalnih standarda i inovativnih tehnologija. Naši sertifikati uključuju ISO 9001:2004 za upravljanje kvalitetom, ISO 14001:2015 za upravljanje životnom sredinom, ISO 45001:2018 za upravljanje zdravljem i bezbednošću na radu, kao i druge relevantne sertifikate koji dokazuju našu posvećenost kvalitetu i održivosti.'
     }
   },
   products: {

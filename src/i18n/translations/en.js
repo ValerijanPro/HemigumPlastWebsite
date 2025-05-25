@@ -29,7 +29,7 @@ export const en = {
     description: 'Hemigumplast is an established manufacturer of a wide range of spare parts for equipment, machinery, and devices in all branches of industry. We specialize in the application of the latest materials and technologies in the fields of rubber, silicone, Viton, polyurethane, Teflon, graphite, plastic, and various composite materials.',
     certificates: {
       title: 'Certificates',
-      description: 'Hemigumplast possesses numerous quality certificates that confirm our commitment to implementing global standards and innovative technologies. Our certificates include ISO 9001:2015 for quality management, ISO 14001:2015 for environmental management, and other relevant certificates that prove our dedication to quality and sustainability.'
+      description: 'Hemigumplast possesses numerous quality certificates that confirm our commitment to implementing global standards and innovative technologies. Our certificates include ISO 9001:2004 for quality management, ISO 14001:2015 for environmental management, ISO 45001:2018 for occupational health and safety management, and other relevant certificates that prove our dedication to quality and sustainability.'
     }
   },
   products: {
