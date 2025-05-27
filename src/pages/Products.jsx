@@ -388,6 +388,16 @@ const Products = () => {
             <CategoryCardDescription style={{margin: '0 auto 2rem auto', maxWidth: '700px', textAlign: 'center', color: 'black'}}>
               {getCategoryText(selectedCategory)}
             </CategoryCardDescription>
+            {selectedCategory[`additional_table_${i18n.language === 'sr' ? 'ser' : 'en'}`] && (
+              <GalleryItem style={{ marginBottom: '2rem', maxWidth: '800px', margin: '0 auto 2rem auto', display: 'flex', justifyContent: 'center', alignItems: 'center', transform: 'translateX(32px)' }}>
+                <GalleryImage
+                  src={getImageUrl(selectedCategory[`additional_table_${i18n.language === 'sr' ? 'ser' : 'en'}`])}
+                  alt={`${getCategoryName(selectedCategory)} - Additional Table`}
+                  onError={() => handleImageError(selectedCategory[`additional_table_${i18n.language === 'sr' ? 'ser' : 'en'}`])}
+                  style={{ width: '100%', height: 'auto' }}
+                />
+              </GalleryItem>
+            )}
             {hasImages ? (
               <GalleryGrid>
                 {productImages.map((imageUrl, index) => (
@@ -408,9 +418,9 @@ const Products = () => {
                               top: '50%',
                               left: '50%',
                               transform: 'translate(-50%, -50%)',
-                              width: '30%',
+                              width: '100%',
                               height: 'auto',
-                              opacity: 1,
+                              opacity: 0.05,
                               pointerEvents: 'none'
                             }}
                           />
