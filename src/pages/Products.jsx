@@ -420,7 +420,7 @@ const Products = () => {
                               transform: 'translate(-50%, -50%)',
                               width: '100%',
                               height: 'auto',
-                              opacity: 0.05,
+                              opacity: 0.1,
                               pointerEvents: 'none'
                             }}
                           />
